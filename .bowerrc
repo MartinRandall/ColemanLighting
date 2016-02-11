@@ -1,0 +1,4 @@
+{
+  "proxy": "http://hproxy:8080",
+  "https-proxy": "http://hproxy:8080"
+}
