@@ -1,0 +1,18 @@
+{
+  "name": "ColemanLighting",
+  "homepage": "https://github.com/MartinRandall/ColemanLighting",
+  "authors": [
+    "Martin Randall <MRandall@SSDEVAzureDomain.onmicrosoft.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

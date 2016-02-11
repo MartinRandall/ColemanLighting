@@ -1,0 +1,23 @@
+{
+  "name": "colemanlighting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://MartinRandall@github.com/MartinRandall/ColemanLighting.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartinRandall/ColemanLighting/issues"
+  },
+  "homepage": "https://github.com/MartinRandall/ColemanLighting#readme"
+}
