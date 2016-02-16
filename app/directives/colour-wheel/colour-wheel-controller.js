@@ -6,10 +6,14 @@
         .directive("colourWheel", function() {
 
             function drawCircle(element, size) {
-                var el = element.children('#surface')[0];
-                var  context = el.getContext('2d'),
-                    width = el.parentNode.offsetWidth,
-                    height = el.parentNode.offsetHeight,
+
+                var canvas = angular.element("<canvas></canvas>");
+                element.append(canvas);
+                var el = canvas[0];
+
+                var context = el.getContext('2d'),
+                    width = size,
+                    height = size,
                     cx = width / 2,
                     cy = height / 2,
                     radius = width / 2,
@@ -25,8 +29,8 @@
                 imageData = context.createImageData(width, height);
                 pixels = imageData.data;
 
-                for (y = 0; y < height; y = y + 1) {
-                    for (x = 0; x < width; x = x + 1, i = i + 4) {
+                for (y = 0; y < height; y++) {
+                    for (x = 0; x < width; x++, i += 4) {
                         rx = x - cx;
                         ry = y - cy;
                         d = rx * rx + ry * ry;
@@ -41,18 +45,18 @@
                             pixels[i] = [255, v, u, u, w, 255, 255][g];
                             pixels[i + 1] = [w, 255, 255, v, u, u, w][g];
                             pixels[i + 2] = [u, u, w, 255, 255, v, u][g];
-                            pixels[i + 3] = 4;
+                            pixels[i + 3] = 255;
                         } else {
-                            pixels[i] = 192;
-                            pixels[i + 1] = 192;
-                            pixels[i + 2] = 192;
-                            pixels[i + 3] = 4;
+                            pixels[i] = 255;
+                            pixels[i + 1] = 255;
+                            pixels[i + 2] = 255;
+                            pixels[i + 3] = 255;
                         }
                     }
                 }
 
                 context.putImageData(imageData, 0, 0);
-            };
+            }
 
             return {
                 restrict: "E",
@@ -62,7 +66,7 @@
                     size: '='
                 },
                 link: function(scope, element, attr) {
-                    drawCircle(element, 250);
+                    drawCircle(element, scope.size);
                 }
             };
         });
