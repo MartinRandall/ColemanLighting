@@ -16,11 +16,12 @@
                 },
                 levels: {
                     red: 255,
-                    green: 255,
-                    blue: 255,
+                    green: 0,
+                    blue: 0,
                     white: 255
                 }
             };
+
             $scope.worktopLight = {
                 name: 'Worktop Light',
                 deviceIds: {
@@ -30,8 +31,8 @@
                     white: 14
                 },
                 levels: {
-                    red: 255,
-                    green: 255,
+                    red: 0,
+                    green: 0,
                     blue: 255,
                     white: 255
                 }
