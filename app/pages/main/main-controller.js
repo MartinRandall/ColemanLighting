@@ -12,6 +12,10 @@
         $scope.roofLight = getRoofLight(0, 0, 255, 0);
         $scope.worktopLight = getWorktopLight(0, 128, 0, 0);
 
+        $scope.test = function() {
+            $scope.roofLight.levels.red = 255;
+        };
+
         setLightLevels($scope.roofLight);
         setLightLevels($scope.worktopLight);
 

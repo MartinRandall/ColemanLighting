@@ -20,11 +20,9 @@
             link: function (scope, element, attr) {
                 drawCircle(element, scope.size);
 
-/*
-                scope.$watch('light', function(value){
+                scope.$watch('light.levels.red', function(value){
                     console.log(value);
                 });
-*/
             }
         };
     }
