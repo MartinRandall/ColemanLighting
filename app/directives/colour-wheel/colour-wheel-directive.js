@@ -22,18 +22,18 @@
             link: function (scope, element, attr) {
                 var el = drawCircle(element, scope.size);
 
-                scope.$watch('red', function(value){
+                scope.$watch('red', function (value) {
                     console.log(value);
                 });
 
                 el.addEventListener('click', function (e) {
 
-                    var x = e.pageX - el.offsetLeft;
-                    var y = e.pageY - el.offsetTop;
-
-                    var data = el.getContext('2d').getImageData(x, y, 1, 1).data;
-                    console.log(data[0] + ',' + data[1] + ',' + data[2]);
-
+                    scope.$apply(function () {
+                        var colour = getPixelColour(e.layerX, e.layerY, el.width);
+                        scope.red = Math.round(colour.r);
+                        scope.green = Math.round(colour.g);
+                        scope.blue = Math.round(colour.b);
+                    });
 
                 }, true);
             }
@@ -54,8 +54,6 @@
             y: Math.round(Math.sin(radians) * radius)
         };
     }
-
-
 
 
     function drawCircle(element, size) {
@@ -117,10 +115,13 @@
      * Get pixel colour
      * @param {number} x
      * @param {number} y
+     * @param {number} size - size of colour wheel
      * @returns {*}
      */
-    function getPixelColour(x, y)
-    {
+    function getPixelColour(x, y, size) {
+        var radius = size / 2;
+        var cx = size / 2;
+        var cy = size / 2;
         var rx = x - cx;
         var ry = y - cy;
         var d = rx * rx + ry * ry;
@@ -138,7 +139,7 @@
                 b: [u, u, w, 255, 255, v, u][g]
             };
         } else {
-            return { r: 255, g: 255, b: 255};
+            return {r: 255, g: 255, b: 255};
         }
     }
 
