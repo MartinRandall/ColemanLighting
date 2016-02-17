@@ -19,6 +19,12 @@
             },
             link: function (scope, element, attr) {
                 drawCircle(element, scope.size);
+
+/*
+                scope.$watch('light', function(value){
+                    console.log(value);
+                });
+*/
             }
         };
     }

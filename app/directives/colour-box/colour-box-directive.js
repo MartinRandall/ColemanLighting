@@ -12,10 +12,11 @@
             restrict: "E",
             templateUrl: "app/directives/colour-box/colour-box-template.html",
             scope: {
-                light: '='
+                red: "=",
+                green: "=",
+                blue: "="
             },
             link: function (scope, element, attr) {
-
             }
         };
     }

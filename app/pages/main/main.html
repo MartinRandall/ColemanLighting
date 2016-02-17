@@ -8,8 +8,16 @@
             <colour-wheel class="col-sm-6" light="worktopLight" size="50"></colour-wheel>
         </div>
         <div class="row">
-            <colour-box class="col-sm-6" light="roofLight"></colour-box>
-            <colour-box class="col-sm-6" light="worktopLight"></colour-box>
+            <colour-box class="col-sm-6"
+                        red="roofLight.levels.red"
+                        green="roofLight.levels.green"
+                        blue="roofLight.levels.blue">
+            </colour-box>
+            <colour-box class="col-sm-6"
+                        red="worktopLight.levels.red"
+                        green="worktopLight.levels.green"
+                        blue="worktopLight.levels.blue">
+            </colour-box>
         </div>
     </div>
 
