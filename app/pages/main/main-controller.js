@@ -13,8 +13,13 @@
         $scope.worktopLight = getWorktopLight(0, 128, 0, 0);
 
 
+        $scope.$watch('roofLight.levels.red', function(newValue) {
+            lightControlService.setLight($scope.roofLight.deviceIds.red, scaleValue(newValue));
+        });
+
         setLightLevels($scope.roofLight);
         setLightLevels($scope.worktopLight);
+
 
         /**
          * Sets the light levels of the given light
@@ -47,7 +52,7 @@
      * @returns {{name: string, deviceIds: {red: number, green: number, blue: number, white: number, master: number}, levels: {red: number, green: number, blue: number, white: number, master: number}}}
      */
     function getRoofLight(r, g, b, w) {
-        return getLight('Roof Light', r, g, b, w, 255, 12, 11, 13, 14, 4);
+        return getLight('Roof Light', r, g, b, w, 255, 12, 11, 13, 14, 10);
     }
 
     /**
