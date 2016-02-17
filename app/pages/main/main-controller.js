@@ -3,9 +3,14 @@
     "use strict";
 
     angular.module("main")
-        .controller("MainController", ["$scope", function ($scope) {
+        .controller("MainController", mainController);
+
+        mainController.$inject = ['$scope'];
+
+        function mainController($scope) {
             $scope.test = "angular is working";
 
+            // Initialise the lights
             $scope.roofLight = {
                 name: 'Roof Light',
                 deviceIds: {
@@ -40,5 +45,5 @@
                 }
             };
 
-        }]);
+        }
 })();
