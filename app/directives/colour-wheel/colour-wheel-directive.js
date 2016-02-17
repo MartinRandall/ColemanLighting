@@ -14,15 +14,28 @@
             restrict: "E",
             templateUrl: "app/directives/colour-wheel/colour-wheel-template.html",
             scope: {
-                light: '=',
+                red: '=',
+                green: '=',
+                blue: '=',
                 size: '='
             },
             link: function (scope, element, attr) {
-                drawCircle(element, scope.size);
+                var el = drawCircle(element, scope.size);
 
-                scope.$watch('light.levels.red', function(value){
+                scope.$watch('red', function(value){
                     console.log(value);
                 });
+
+                el.addEventListener('click', function (e) {
+
+                    var x = e.pageX - el.offsetLeft;
+                    var y = e.pageY - el.offsetTop;
+
+                    var data = el.getContext('2d').getImageData(x, y, 1, 1).data;
+                    console.log(data[0] + ',' + data[1] + ',' + data[2]);
+
+
+                }, true);
             }
         };
     }
@@ -41,6 +54,9 @@
             y: Math.round(Math.sin(radians) * radius)
         };
     }
+
+
+
 
     function drawCircle(element, size) {
 
@@ -93,6 +109,37 @@
         }
 
         context.putImageData(imageData, 0, 0);
+
+        return el;
+    }
+
+    /**
+     * Get pixel colour
+     * @param {number} x
+     * @param {number} y
+     * @returns {*}
+     */
+    function getPixelColour(x, y)
+    {
+        var rx = x - cx;
+        var ry = y - cy;
+        var d = rx * rx + ry * ry;
+        if (d < radius * radius) {
+            var hue = 6 * (Math.atan2(ry, rx) + Math.PI) / (2 * Math.PI);
+            var sat = Math.sqrt(d) / radius;
+            var g = Math.floor(hue);
+            var f = hue - g;
+            var u = 255 * (1 - sat);
+            var v = 255 * (1 - sat * f);
+            var w = 255 * (1 - sat * (1 - f));
+            return {
+                r: [255, v, u, u, w, 255, 255][g],
+                g: [w, 255, 255, v, u, u, w][g],
+                b: [u, u, w, 255, 255, v, u][g]
+            };
+        } else {
+            return { r: 255, g: 255, b: 255};
+        }
     }
 
 })();
