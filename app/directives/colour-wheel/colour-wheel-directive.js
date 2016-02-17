@@ -23,6 +23,21 @@
         };
     }
 
+    /**
+     * Convert polar to rectangular coordinates
+     * @param {number} angle = angle in degrees
+     * @param {number} radius
+     * @returns {{x: number, y: number}}
+     */
+    function polarToRectangular(angle, radius) {
+        // degree to radians
+        var radians = angle * (Math.PI / 180);
+        return {
+            x: Math.round(Math.cos(radians) * radius),
+            y: Math.round(Math.sin(radians) * radius)
+        };
+    }
+
     function drawCircle(element, size) {
 
         var canvas = angular.element("<canvas></canvas>");
