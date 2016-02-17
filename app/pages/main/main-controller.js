@@ -9,10 +9,11 @@
             $scope.roofLight = {
                 name: 'Roof Light',
                 deviceIds: {
-                    red: 1,
-                    green: 2,
-                    blue: 3,
-                    white: 4
+                    red: 12,
+                    green: 11,
+                    blue: 13,
+                    white: 14,
+                    master: 4
                 },
                 levels: {
                     red: 255,
@@ -25,10 +26,11 @@
             $scope.worktopLight = {
                 name: 'Worktop Light',
                 deviceIds: {
-                    red: 11,
-                    green: 12,
-                    blue: 13,
-                    white: 14
+                    red: 7,
+                    green: 6,
+                    blue: 8,
+                    white: 9,
+                    master: 5
                 },
                 levels: {
                     red: 0,
