@@ -9,8 +9,8 @@
 
     function mainController($scope, lightControlService) {
 
-        $scope.roofLight = getRoofLight();
-        $scope.worktopLight = getWorktopLight();
+        $scope.roofLight = getRoofLight(0, 0, 255, 0);
+        $scope.worktopLight = getWorktopLight(0, 128, 0, 0);
 
         setLightLevels($scope.roofLight);
         setLightLevels($scope.worktopLight);
@@ -20,59 +20,78 @@
          * @param {{name: string, deviceIds: {red: number, green: number, blue: number, white: number, master: number}, levels: {red: number, green: number, blue: number, white: number}}} light
          */
         function setLightLevels(light) {
-            lightControlService.setLight(light.deviceIds.blue, (light.levels.blue * 100) / 255);
-            lightControlService.setLight(light.deviceIds.green, (light.levels.green * 100) / 255);
-            lightControlService.setLight(light.deviceIds.red, (light.levels.red * 100) / 255);
-            lightControlService.setLight(light.deviceIds.white, (light.levels.white * 100) / 255);
-            lightControlService.setLight(light.deviceIds.master, (light.levels.master * 100) / 255);
+            lightControlService.setLight(light.deviceIds.blue, scaleValue(light.levels.blue));
+            lightControlService.setLight(light.deviceIds.green, scaleValue(light.levels.green));
+            lightControlService.setLight(light.deviceIds.red, scaleValue(light.levels.red));
+            lightControlService.setLight(light.deviceIds.white, scaleValue(light.levels.white));
+            lightControlService.setLight(light.deviceIds.master, scaleValue(light.levels.master));
+        }
+
+        /**
+         * Scales a 0-255 value to 0-100
+         * @param {number} value - value to scale
+         * @returns {number} Scales value in range (0-100)
+         */
+        function scaleValue(value) {
+            return (value * 100) / 255;
         }
     }
 
-
     /**
      * Constructs the roof light object
+     * @param {number} r - Initial red value
+     * @param {number} g - Initial green value
+     * @param {number} b - Initial blue value
+     * @param {number} w - Initial white value
      * @returns {{name: string, deviceIds: {red: number, green: number, blue: number, white: number, master: number}, levels: {red: number, green: number, blue: number, white: number, master: number}}}
      */
-    function getRoofLight() {
-        return {
-            name: 'Roof Light',
-            deviceIds: {
-                red: 12,
-                green: 11,
-                blue: 13,
-                white: 14,
-                master: 4
-            },
-            levels: {
-                red: 255,
-                green: 0,
-                blue: 0,
-                white: 255,
-                master: 255
-            }
-        }
+    function getRoofLight(r, g, b, w) {
+        return getLight('Roof Light', r, g, b, w, 255, 12, 11, 13, 14, 4);
     }
 
     /**
      * Constructs the worktop light object
+     * @param {number} r - Initial red value
+     * @param {number} g - Initial green value
+     * @param {number} b - Initial blue value
+     * @param {number} w - Initial white value
      * @returns {{name: string, deviceIds: {red: number, green: number, blue: number, white: number, master: number}, levels: {red: number, green: number, blue: number, white: number, master: number}}}
      */
-    function getWorktopLight() {
+    function getWorktopLight(r, g, b, w) {
+        return getLight('Worktop Light', r, g, b, w, 255, 7, 6, 8, 9, 5);
+    }
+
+    /**
+     * Create a new light
+     * @param {string} name - Name of light
+     * @param {number} r - Initial red value
+     * @param {number} g - Initial green value
+     * @param {number} b - Initial blue value
+     * @param {number} w - Initial white value
+     * @param {number} m - Initial master value
+     * @param {number} idr - Red device Id
+     * @param {number} idg - Green device Id
+     * @param {number} idb - Blue device Id
+     * @param {number} idw - While device Id
+     * @param {number} idm - Master device Id
+     * @returns {{name: *, deviceIds: {red: *, green: *, blue: *, white: *, master: *}, levels: {red: *, green: *, blue: *, white: *, master: *}}}
+     */
+    function getLight(name, r, g, b, w, m, idr, idg, idb, idw, idm) {
         return {
-            name: 'Worktop Light',
+            name: name,
             deviceIds: {
-                red: 7,
-                green: 6,
-                blue: 8,
-                white: 9,
-                master: 5
+                red: idr,
+                green: idg,
+                blue: idb,
+                white: idw,
+                master: idm
             },
             levels: {
-                red: 0,
-                green: 0,
-                blue: 255,
-                white: 255,
-                master: 255
+                red: r,
+                green: g,
+                blue: b,
+                white: w,
+                master: m
             }
         };
     }
