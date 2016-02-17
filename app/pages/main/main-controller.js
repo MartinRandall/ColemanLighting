@@ -33,7 +33,7 @@
          * @returns {number} Scales value in range (0-100)
          */
         function scaleValue(value) {
-            return (value * 100) / 255;
+            return Math.round((value * 100) / 255);
         }
     }
 

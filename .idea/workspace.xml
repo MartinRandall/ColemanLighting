@@ -4,6 +4,7 @@
     <list default="true" id="55af2d9d-715c-4566-a3bf-aa0cfbb4364b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/pages/main/main-controller.js" afterPath="$PROJECT_DIR$/app/pages/main/main-controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/lightControlService.js" afterPath="$PROJECT_DIR$/app/services/lightControlService.js" />
     </list>
     <ignored path="ColemanLighting.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,21 +77,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main-controller.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main-controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/pages/main/main-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.52532834">
+              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lightControlService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lightControlService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/services/lightControlService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.60037524">
-              <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -440,7 +441,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455706521349</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="more on the light setup">
+      <created>1455718984411</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1455718984411</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -915,18 +922,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/pages/main/main-controller.js">
+    <entry file="file://$PROJECT_DIR$/app/services/lightControlService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/services/lightControlService.js">
+    <entry file="file://$PROJECT_DIR$/app/pages/main/main-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60037524">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.52532834">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding />
         </state>
       </provider>

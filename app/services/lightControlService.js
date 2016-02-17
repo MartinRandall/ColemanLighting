@@ -7,7 +7,6 @@
 
     lightControlService.$inject = ['$http'];
 
-
     function lightControlService($http) {
 
         return {
