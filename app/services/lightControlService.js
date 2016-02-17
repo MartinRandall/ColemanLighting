@@ -14,23 +14,23 @@
 
             /**
              * Sets the level for the given light
-             * @param {int} lightId - Id of light to set
-             * @param {int} level - level of light to set at (0 - 100)
+             * @param {number} lightId - Id of light to set
+             * @param {number} level - level of light to set at (0 - 100)
              */
             setLight: function (lightId, level) {
                 level = limitLevel(level);
 
                 // todo - send http command
 
-                Console.log("set light " + lightId + " to " + level);
+                console.log("set light " + lightId + " to " + level);
             }
         };
     }
 
     /**
      * Limit the level value to range 0 - 100
-     * @param {int} level
-     * @returns {int} limited level
+     * @param {number} level
+     * @returns {number} limited level
      */
     function limitLevel(level) {
         if (level < 0) {
@@ -41,5 +41,4 @@
         }
         return level;
     }
-
 })();
