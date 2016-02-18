@@ -5,10 +5,9 @@
     angular.module("main")
         .controller("MainController", mainController);
 
-    mainController.$inject = ['$scope', 'lightControlService'];
+    mainController.$inject = ['$scope'];
 
-    function mainController($scope, lightControlService) {
-
+    function mainController($scope) {
         $scope.roofLight = getRoofLight(0, 0, 255, 0);
         $scope.worktopLight = getWorktopLight(0, 128, 0, 0);
     }
