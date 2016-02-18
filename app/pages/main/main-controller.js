@@ -11,36 +11,6 @@
 
         $scope.roofLight = getRoofLight(0, 0, 255, 0);
         $scope.worktopLight = getWorktopLight(0, 128, 0, 0);
-
-
-        $scope.$watch('roofLight.levels.red', function(newValue) {
-            lightControlService.setLight($scope.roofLight.deviceIds.red, scaleValue(newValue));
-        });
-
-        setLightLevels($scope.roofLight);
-        setLightLevels($scope.worktopLight);
-
-
-        /**
-         * Sets the light levels of the given light
-         * @param {{name: string, deviceIds: {red: number, green: number, blue: number, white: number, master: number}, levels: {red: number, green: number, blue: number, white: number}}} light
-         */
-        function setLightLevels(light) {
-            lightControlService.setLight(light.deviceIds.blue, scaleValue(light.levels.blue));
-            lightControlService.setLight(light.deviceIds.green, scaleValue(light.levels.green));
-            lightControlService.setLight(light.deviceIds.red, scaleValue(light.levels.red));
-            lightControlService.setLight(light.deviceIds.white, scaleValue(light.levels.white));
-            lightControlService.setLight(light.deviceIds.master, scaleValue(light.levels.master));
-        }
-
-        /**
-         * Scales a 0-255 value to 0-100
-         * @param {number} value - value to scale
-         * @returns {number} Scales value in range (0-100)
-         */
-        function scaleValue(value) {
-            return Math.round((value * 100) / 255);
-        }
     }
 
     /**
