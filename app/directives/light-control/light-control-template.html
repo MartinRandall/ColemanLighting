@@ -1,18 +1,23 @@
-<b>{{light.name}}</b>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{light.name}}</h3>
+    </div>
+    <div class="panel-body">
+        <colour-wheel red="light.levels.red"
+                      green="light.levels.green"
+                      blue="light.levels.blue"
+                      size="300">
+        </colour-wheel>
 
-<colour-wheel red="light.levels.red"
-              green="light.levels.green"
-              blue="light.levels.blue"
-              size="250">
-</colour-wheel>
+        <colour-box red="light.levels.red"
+                    green="light.levels.green"
+                    blue="light.levels.blue">
+        </colour-box>
 
-<colour-box red="light.levels.red"
-            green="light.levels.green"
-            blue="light.levels.blue">
-</colour-box>
-
-<div>
-    <div class="checkbox">
-        <label><input type="checkbox" ng-model="discoMode">Disco Mode</label>
+        <div>
+            <div class="checkbox">
+                <label><input type="checkbox" ng-model="discoMode">Disco Mode</label>
+            </div>
+        </div>
     </div>
 </div>

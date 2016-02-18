@@ -42,7 +42,7 @@
                             scope.light.levels.red = 255 - scope.light.levels.red;
                             scope.light.levels.green = 255 - scope.light.levels.green;
                             scope.light.levels.blue = 255 - scope.light.levels.blue;
-                        }, 1000);
+                        }, 3000);
                     } else {
                         if (discoTimer) {
                             $interval.cancel(discoTimer);

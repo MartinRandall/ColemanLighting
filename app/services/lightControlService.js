@@ -19,11 +19,11 @@
                 level = limitLevel(level);
 
                 // send http command
-               /* $http.get("http://192.168.1.18/port_3480/" +
+               $http.get("http://192.168.1.18/port_3480/" +
                     "data_request?id=lu_action&output_format=json&" +
                     "DeviceNum=" + lightId + "&serviceId=urn:upnp-org:serviceId:Dimming1&" +
                     "action=SetLoadLevelTarget&newLoadlevelTarget=" + level);
-*/
+
                 console.log("set light " + lightId + " to " + level);
             }
         };
