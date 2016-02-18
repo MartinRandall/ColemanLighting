@@ -1,9 +1,8 @@
-(function () {
+(function (mod) {
 
     "use strict";
 
-    angular.module("main")
-        .directive("colourBox", colourBox);
+    mod.directive("colourBox", colourBox);
 
     colourBox.$inject = [];
 
@@ -17,7 +16,7 @@
                 blue: "="
             },
             link: function (scope) {
-                scope.$watchGroup(['red', 'green', 'blue'], function(newValues) {
+                scope.$watchGroup(['red', 'green', 'blue'], function (newValues) {
                     scope.bgcolor = "#" + ("000000" + rgbToHex(newValues[0], newValues[1], newValues[2])).slice(-6);
                 });
             }
@@ -28,4 +27,4 @@
         if (r > 255 || g > 255 || b > 255) throw "Invalid color component";
         return ((r << 16) | (g << 8) | b).toString(16);
     }
-})();
+})(angular.module("main"));

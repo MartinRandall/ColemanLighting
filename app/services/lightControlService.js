@@ -1,9 +1,8 @@
-(function () {
+(function (mod) {
 
     "use strict";
 
-    angular.module("main")
-        .factory("lightControlService", lightControlService);
+    mod.factory("lightControlService", lightControlService);
 
     lightControlService.$inject = ['$http'];
 
@@ -44,4 +43,4 @@
         }
         return level;
     }
-})();
+})(angular.module("main"));

@@ -1,9 +1,8 @@
-(function () {
+(function (mod) {
 
     "use strict";
 
-    angular.module("main")
-        .directive("colourWheel", colourWheel);
+    mod.directive("colourWheel", colourWheel);
 
 
     colourWheel.$inject = [];
@@ -19,7 +18,7 @@
                 blue: '=',
                 size: '='
             },
-            link: function (scope, element, attr) {
+            link: function (scope, element) {
                 var el = drawCircle(element, scope.size);
 
                 scope.$watch('red', function (value) {
@@ -143,4 +142,4 @@
         }
     }
 
-})();
+})(angular.module("main"));
