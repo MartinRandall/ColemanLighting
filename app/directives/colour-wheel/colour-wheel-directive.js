@@ -16,25 +16,39 @@
                 red: '=',
                 green: '=',
                 blue: '=',
+                white: '=',
                 size: '='
             },
             link: function (scope, element) {
-                var el = drawCircle(element, Number(scope.size));
+
+                var wheelCanvas = scope.wheelCanvas;
+                drawCircle(wheelCanvas, Number(scope.size));
 
                 scope.$watch('red', function (value) {
                     console.log(value);
                 });
 
-                el.addEventListener('click', function (e) {
+                wheelCanvas[0].addEventListener('click', function (e) {
 
                     scope.$apply(function () {
-                        var colour = getPixelColour(e.layerX, e.layerY, el.width);
+                        var colour = getPixelColour(e.layerX, e.layerY, wheelCanvas[0].width);
                         scope.red = Math.round(colour.r);
                         scope.green = Math.round(colour.g);
                         scope.blue = Math.round(colour.b);
                     });
 
                 }, true);
+
+                var whitePicker = scope.whitePicker;
+                whitePicker.css('height', scope.size + 'px');
+                whitePicker[0].addEventListener('click', function(e) {
+
+                    scope.$apply(function() {
+                        var level = 100 - ((e.layerY * 100) / scope.size);
+                        scope.white = Math.round(level);
+                    });
+
+                });
             }
         };
     }
@@ -60,10 +74,12 @@
      * @param {number} size - size of the circle
      * @returns {*}
      */
-    function drawCircle(element, size) {
+    function drawCircle(canvas, size) {
 
+/*
         var canvas = angular.element("<canvas></canvas>");
         element.append(canvas);
+*/
         var el = canvas[0];
 
         var context = el.getContext('2d'),

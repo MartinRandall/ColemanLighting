@@ -38,9 +38,11 @@ section {
 }
 
 #gamma_slider {
-    width:10px;
-    height:180px;
-    cursor: vertical-text;
+    margin-left: 20px;
+    width:20px;
+    cursor: crosshair;
+    border: 0.5px solid black;
+    border-radius: 6px;
     background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.12) 57%, rgba(0,0,0,0.18) 62%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(57%,rgba(0,0,0,0.12)), color-stop(62%,rgba(0,0,0,0.18)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.12) 57%,rgba(0,0,0,0.18) 62%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
@@ -51,9 +53,7 @@ section {
 }
 
 .colourBox {
-    border-width: 0.5px;
-    border-color: black;
-    border-style: solid;
+    border: 0.5px solid black;
     border-radius: 6px;
     height:20px;
 }
