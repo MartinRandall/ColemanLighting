@@ -19,7 +19,7 @@
                 size: '='
             },
             link: function (scope, element) {
-                var el = drawCircle(element, scope.size);
+                var el = drawCircle(element, Number(scope.size));
 
                 scope.$watch('red', function (value) {
                     console.log(value);
@@ -54,7 +54,12 @@
         };
     }
 
-
+    /**
+     * Draws a circle
+     * @param element
+     * @param {number} size - size of the circle
+     * @returns {*}
+     */
     function drawCircle(element, size) {
 
         var canvas = angular.element("<canvas></canvas>");

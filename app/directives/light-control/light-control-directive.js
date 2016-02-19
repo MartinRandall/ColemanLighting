@@ -13,7 +13,7 @@
             scope: {
                 light: '='
             },
-            link: function (scope) {
+            link: function (scope, elem) {
                 scope.discoMode = false;
 
                 scope.$watch('light.levels.red', function (newValue) {
@@ -32,6 +32,12 @@
                     setDisco(newValue);
                 });
 
+                elem.on('$destroy', function() {
+                    if (discoTimer) {
+                        $interval.cancel(discoTimer);
+                    }
+                });
+
                 var discoTimer;
                 function setDisco(discoOn) {
                     console.log("Disco: " + discoOn);
@@ -39,13 +45,14 @@
 
                     if (discoOn) {
                         discoTimer = $interval(function() {
-                            scope.light.levels.red = 255 - scope.light.levels.red;
-                            scope.light.levels.green = 255 - scope.light.levels.green;
-                            scope.light.levels.blue = 255 - scope.light.levels.blue;
+                            scope.light.levels.red = 255 - scope.light.levels.green;
+                            scope.light.levels.green = 255 - scope.light.levels.blue;
+                            scope.light.levels.blue = 255 - scope.light.levels.red;
                         }, 3000);
                     } else {
                         if (discoTimer) {
                             $interval.cancel(discoTimer);
+                            discoOn = 0;
                         }
                     }
                 }
